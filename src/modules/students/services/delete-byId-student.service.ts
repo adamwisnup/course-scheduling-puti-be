@@ -14,12 +14,7 @@ export class DeleteByIdStudentsService {
     this.logger.log(`Attempting to delete student with id: ${id}`);
 
     const deleted = await this.studentCommandRepo.delete(id);
-
-    // if (!deleted) {
-    //   this.logger.warn(`Student with id ${id} was not found`);
-    //   throw new NotFoundException(`Student with id ${id} was not found`);
-    // }
-
+    
     this.logger.log(`Successfully deleted student with id: ${id}`);
     return { message: `Student with id ${id} was successfully deleted` };
   }

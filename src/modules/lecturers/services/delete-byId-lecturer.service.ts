@@ -15,11 +15,6 @@ export class DeleteByIdLecturerService {
 
     const deleted = await this.lecturerCommandRepo.delete(id);
 
-    // if (!deleted) {
-    //   this.logger.warn(`Lecturer with id ${id} was not found`);
-    //   throw new NotFoundException(`Lecturer with id ${id} was not found`);
-    // }
-
     this.logger.log(`Successfully deleted lecturer with id: ${id}`);
     return { message: `Lecturer with id ${id} was successfully deleted` };
   }

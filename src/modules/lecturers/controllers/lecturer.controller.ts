@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Get, Query, Patch, Delete } from "@nestjs/common";
+import { Body, Controller, Post, Get, Query, Patch, Delete, Param } from "@nestjs/common";
 import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { CreateLecturerService } from "../services/create-lecturer.service";
 import { CreateLecturerDto } from "../dto/create-lecturer.dto";
@@ -37,7 +37,7 @@ export class LecturerController {
   @ApiOperation({ summary: 'Get lecturer by ID' })
   @ApiResponse({ status: 200, description: 'Lecturer data.' })
   @ApiResponse({ status: 404, description: 'Lecturer not found.' })
-  async getById(@Body('id') id: string) {
+  async getById(@Param('id') id: string) {
     return this.getByIdLecturerService.execute(id);
   }
 
@@ -45,7 +45,7 @@ export class LecturerController {
   @ApiOperation({ summary: 'Update lecturer by ID' })
   @ApiResponse({ status: 200, description: 'Lecturer updated successfully.' })
   @ApiResponse({ status: 404, description: 'Lecturer not found.' })
-  async updateById(@Body('id') id: string, @Body() dto: UpdateLecturerDto) {
+  async updateById(@Param('id') id: string, @Body() dto: UpdateLecturerDto) {
     return this.updateByIdLecturerService.execute(id, dto);
   }
 
@@ -53,7 +53,7 @@ export class LecturerController {
   @ApiOperation({ summary: 'Delete lecturer by ID' })
   @ApiResponse({ status: 200, description: 'Lecturer deleted successfully.' })
   @ApiResponse({ status: 404, description: 'Lecturer not found.' })
-  async remove(@Body('id') id: string) {
+  async remove(@Param('id') id: string) {
     return this.deleterByIdLecturerService.execute(id);
   }
 }

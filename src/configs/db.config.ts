@@ -11,9 +11,9 @@ const config: TypeOrmModuleOptions = {
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
   entities: [__dirname + '/../schemas/*.schema{.ts,.js}'],
-  synchronize: true, // aktifkan dulu supaya tabel auto generate saat dev
+  synchronize: true,
   migrations: [__dirname + '/../migrations/*{.ts,.js}'],
-  migrationsRun: false, // set false kalau pakai synchronize
+  migrationsRun: false,
   autoLoadEntities: true,
 };
 
