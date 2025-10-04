@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import config from './configs/db.config';
 import { StudentModule } from './modules/students/student.module';
 import { LecturerModule } from './modules/lecturers/lecturer.module';
+import { CourseModule } from './modules/courses/course.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { LecturerModule } from './modules/lecturers/lecturer.module';
     TypeOrmModule.forRoot(config),
     StudentModule,
     LecturerModule,
+    CourseModule,
   ],
 })
 export class AppModule {}
