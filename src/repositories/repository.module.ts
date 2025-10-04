@@ -10,6 +10,8 @@ import { StudentCommandRepository } from './students/student.command';
 import { StudentQueryRepository } from './students/student.query';
 import { LecturerCommandRepository } from './lecturers/lecturer.command';
 import { LecturerQueryRepository } from './lecturers/lecturer.query';
+import { CourseCommandRepository } from './courses/course.command';
+import { CourseQueryRepository } from './courses/course.query';
 
 @Module({
   imports: [
@@ -27,12 +29,16 @@ import { LecturerQueryRepository } from './lecturers/lecturer.query';
     StudentQueryRepository,
     LecturerCommandRepository,
     LecturerQueryRepository,
+    CourseCommandRepository,
+    CourseQueryRepository,
   ],
   exports: [
     StudentCommandRepository,
     StudentQueryRepository,
     LecturerCommandRepository,
     LecturerQueryRepository,
+    CourseCommandRepository,
+    CourseQueryRepository,
     TypeOrmModule,
   ],
 })
