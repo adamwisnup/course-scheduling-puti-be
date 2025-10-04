@@ -12,6 +12,8 @@ import { LecturerCommandRepository } from './lecturers/lecturer.command';
 import { LecturerQueryRepository } from './lecturers/lecturer.query';
 import { CourseCommandRepository } from './courses/course.command';
 import { CourseQueryRepository } from './courses/course.query';
+import { RoomCommandRepository } from './rooms/room.command';
+import { RoomQueryRepository } from './rooms/room.query';
 
 @Module({
   imports: [
@@ -31,6 +33,8 @@ import { CourseQueryRepository } from './courses/course.query';
     LecturerQueryRepository,
     CourseCommandRepository,
     CourseQueryRepository,
+    RoomCommandRepository,
+    RoomQueryRepository,
   ],
   exports: [
     StudentCommandRepository,
@@ -39,6 +43,8 @@ import { CourseQueryRepository } from './courses/course.query';
     LecturerQueryRepository,
     CourseCommandRepository,
     CourseQueryRepository,
+    RoomCommandRepository,
+    RoomQueryRepository,
     TypeOrmModule,
   ],
 })

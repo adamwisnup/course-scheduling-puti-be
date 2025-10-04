@@ -5,6 +5,7 @@ import config from './configs/db.config';
 import { StudentModule } from './modules/students/student.module';
 import { LecturerModule } from './modules/lecturers/lecturer.module';
 import { CourseModule } from './modules/courses/course.module';
+import { RoomModule } from './modules/rooms/room.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { CourseModule } from './modules/courses/course.module';
     StudentModule,
     LecturerModule,
     CourseModule,
+    RoomModule,
   ],
 })
 export class AppModule {}
