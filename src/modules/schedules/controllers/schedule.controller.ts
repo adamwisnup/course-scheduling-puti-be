@@ -73,14 +73,6 @@ export class ScheduleController {
     return this.getByRoomIdScheduleService.execute(room_id);
   }
 
-@Get('search')
-@ApiOperation({ summary: 'Search schedules with filters' })
-@ApiResponse({ status: 200, description: 'Search results.' })
-@ApiResponse({ status: 404, description: 'No schedules found for the search criteria.' })
-async search(@Query() query: SearchScheduleDto) {
-  return this.searchScheduleService.execute(query);
-}
-
   @Patch(':id')
   @ApiOperation({ summary: 'Update room by ID' })
   @ApiResponse({ status: 200, description: 'Room updated successfully.' })
