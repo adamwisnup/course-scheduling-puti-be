@@ -10,6 +10,14 @@ import { StudentCommandRepository } from './students/student.command';
 import { StudentQueryRepository } from './students/student.query';
 import { LecturerCommandRepository } from './lecturers/lecturer.command';
 import { LecturerQueryRepository } from './lecturers/lecturer.query';
+import { CourseCommandRepository } from './courses/course.command';
+import { CourseQueryRepository } from './courses/course.query';
+import { RoomCommandRepository } from './rooms/room.command';
+import { RoomQueryRepository } from './rooms/room.query';
+import { ScheduleCommandRepository } from './schedules/schedule.command';
+import { ScheduleQueryRepository } from './schedules/schedule.query';
+import { EnrollmentCommandRepository } from './enrollments/enrollment.command';
+import { EnrollmentQueryRepository } from './enrollments/enrollment.query';
 
 @Module({
   imports: [
@@ -27,12 +35,28 @@ import { LecturerQueryRepository } from './lecturers/lecturer.query';
     StudentQueryRepository,
     LecturerCommandRepository,
     LecturerQueryRepository,
+    CourseCommandRepository,
+    CourseQueryRepository,
+    RoomCommandRepository,
+    RoomQueryRepository,
+    ScheduleCommandRepository,
+    ScheduleQueryRepository,
+    EnrollmentCommandRepository,
+    EnrollmentQueryRepository,
   ],
   exports: [
     StudentCommandRepository,
     StudentQueryRepository,
     LecturerCommandRepository,
     LecturerQueryRepository,
+    CourseCommandRepository,
+    CourseQueryRepository,
+    RoomCommandRepository,
+    RoomQueryRepository,
+    ScheduleCommandRepository,
+    ScheduleQueryRepository,
+    EnrollmentCommandRepository,
+    EnrollmentQueryRepository,
     TypeOrmModule,
   ],
 })
