@@ -1,24 +1,40 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToMany } from 'typeorm';
+import { 
+  Entity, 
+  PrimaryGeneratedColumn, 
+  Column, 
+  CreateDateColumn, 
+  UpdateDateColumn, 
+  ManyToOne, 
+  OneToMany, 
+  JoinColumn, 
+  Index 
+} from 'typeorm';
 import { Course } from './courses.schema';
 import { Lecturer } from './lecturers.schema';
 import { Room } from './rooms.schema';
 import { Enrollment } from './enrollments.schema';
 
 @Entity('schedules')
+@Index(['academic_year', 'semester'])
+@Index(['day', 'start_time', 'end_time'])
 export class Schedule {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => Course, (course) => course.schedules, { eager: true })
+  @ManyToOne(() => Course, (course) => course.schedules, { eager: false, onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'course_id' })
   course: Course;
 
-  @ManyToOne(() => Lecturer, (lecturer) => lecturer.schedules, { eager: true })
+  @ManyToOne(() => Lecturer, (lecturer) => lecturer.schedules, { eager: false, onDelete: 'SET NULL' })
+  @JoinColumn({ name: 'lecturer_id' })
   lecturer: Lecturer;
 
-  @ManyToOne(() => Room, (room) => room.schedules, { eager: true })
+  @ManyToOne(() => Room, (room) => room.schedules, { eager: false, onDelete: 'SET NULL' })
+  @JoinColumn({ name: 'room_id' })
   room: Room;
 
   @Column()
+  @Index()
   day: string;
 
   @Column({ type: 'time' })
@@ -30,13 +46,15 @@ export class Schedule {
   @Column('int')
   quota: number;
 
-  @Column()
+  @Column({ length: 30 })
   class_name: string;
 
-  @Column()
+  @Column({ length: 10 })
+  @Index()
   academic_year: string;
 
-  @Column()
+  @Column({ length: 10 })
+  @Index()
   semester: string;
 
   @CreateDateColumn({ type: 'timestamptz' })
@@ -45,6 +63,9 @@ export class Schedule {
   @UpdateDateColumn({ type: 'timestamptz' })
   updated_at: Date;
 
-  @OneToMany(() => Enrollment, (enrollment) => enrollment.schedule)
+  @OneToMany(() => Enrollment, (enrollment) => enrollment.schedule, {
+    eager: false,
+    cascade: false,
+  })
   enrollments: Enrollment[];
 }
