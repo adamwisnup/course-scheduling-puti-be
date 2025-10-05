@@ -16,6 +16,8 @@ import { RoomCommandRepository } from './rooms/room.command';
 import { RoomQueryRepository } from './rooms/room.query';
 import { ScheduleCommandRepository } from './schedules/schedule.command';
 import { ScheduleQueryRepository } from './schedules/schedule.query';
+import { EnrollmentCommandRepository } from './enrollments/enrollment.command';
+import { EnrollmentQueryRepository } from './enrollments/enrollment.query';
 
 @Module({
   imports: [
@@ -39,6 +41,8 @@ import { ScheduleQueryRepository } from './schedules/schedule.query';
     RoomQueryRepository,
     ScheduleCommandRepository,
     ScheduleQueryRepository,
+    EnrollmentCommandRepository,
+    EnrollmentQueryRepository,
   ],
   exports: [
     StudentCommandRepository,
@@ -51,6 +55,8 @@ import { ScheduleQueryRepository } from './schedules/schedule.query';
     RoomQueryRepository,
     ScheduleCommandRepository,
     ScheduleQueryRepository,
+    EnrollmentCommandRepository,
+    EnrollmentQueryRepository,
     TypeOrmModule,
   ],
 })

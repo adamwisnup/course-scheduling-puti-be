@@ -7,6 +7,7 @@ import { LecturerModule } from './modules/lecturers/lecturer.module';
 import { CourseModule } from './modules/courses/course.module';
 import { RoomModule } from './modules/rooms/room.module';
 import { ScheduleModule } from './modules/schedules/schedule.module';
+import { EnrollmentModule } from './modules/enrollments/enrollment.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { ScheduleModule } from './modules/schedules/schedule.module';
     CourseModule,
     RoomModule,
     ScheduleModule,
+    EnrollmentModule,
   ],
 })
 export class AppModule {}
